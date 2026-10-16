@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centrale - HydroControl</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<header>
+    <div class="logo">💧 HydroControl</div>
+    
+<nav>
+    <a href="index.html">Accueil</a>
+    <a href="centrale.html" class="active">Centrale</a>
+    <a href="simulation.html" >Simulation</a>
+    <a href="environnement.html">Environnement</a>
+    <a href="investissement.html">Investissement</a>
+</nav>
+
+
+</header>
+
+<main>
+    <section class="simulation-header">
+        <p class="surtitle">SUPERVISION EN DIRECT</p>
+        <h1>Au cœur de la <span>centrale</span></h1>
+        <p class="description">
+            Cliquez sur les différents éléments du schéma pour
+            découvrir leur rôle et suivre le fonctionnement de la centrale.
+        </p>
+    </section>
+
+    <section class="plant-layout">
+
+        <div class="plant-panel">
+            <div class="plant-panel-heading">
+                <div>
+                    <strong>Schéma de fonctionnement</strong>
+                    <p>Vue simplifiée de la centrale</p>
+                </div>
+                <span class="plant-status" id="plantStatus">
+                    ● EN SERVICE
+                </span>
+            </div>
+
+            <svg class="plant-svg" viewBox="0 0 760 440"
+                 role="group" aria-label="Schéma interactif d'une centrale hydroélectrique">
+
+                <defs>
+                    <linearGradient id="waterGradient" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#70d5f5"/>
+                        <stop offset="100%" stop-color="#168bb9"/>
+                    </linearGradient>
+                </defs>
+
+                <!-- Fond -->
+                <path d="M0 345 L760 345 L760 440 L0 440 Z"
+                      fill="#edf3f5"/>
+                <path d="M0 345 L760 345"
+                      stroke="#c6d8df" stroke-width="2"/>
+
+                <!-- Réservoir -->
+                <g class="plant-part selected" tabindex="0" role="button"
+                   aria-label="Réservoir" data-part="reservoir">
+                    <path d="M20 125 L210 125 L210 345 L20 345 Z"
+                          fill="url(#waterGradient)" opacity="0.9"/>
+                    <path d="M20 125 Q45 117 70 125 T120 125 T170 125 T210 125"
+                          fill="none" stroke="#087ea4" stroke-width="4"/>
+                    <text x="110" y="95" text-anchor="middle">RÉSERVOIR</text>
+                    <text x="110" y="155" text-anchor="middle" class="svg-small">Eau stockée</text>
+                </g>
+
+                <!-- Barrage -->
+                <g class="plant-part" tabindex="0" role="button"
+                   aria-label="Barrage" data-part="dam">
+                    <path d="M210 95 L255 110 L255 345 L210 345 Z"
+                          fill="#91a6b2" stroke="#526777" stroke-width="2"/>
+                    <path d="M219 125 L246 137 M219 165 L246 177
+                             M219 205 L246 217 M219 245 L246 257
+                             M219 285 L246 297"
+                          stroke="#dbe4e8" stroke-width="3"/>
+                    <text x="231" y="75" text-anchor="middle">BARRAGE</text>
+                </g>
+
+                <!-- Conduite forcée -->
+                <g class="plant-part" tabindex="0" role="button"
+                   aria-label="Conduite forcée" data-part="pipe">
+                    <path d="M255 245 L385 330"
+                          fill="none" stroke="#087ea4" stroke-width="24"
+                          stroke-linecap="round"/>
+                    <path d="M255 245 L385 330"
+                          fill="none" stroke="#9be4fa" stroke-width="9"
+                          stroke-linecap="round" stroke-dasharray="14 12"
+                          class="water-flow"/>
+                    <text x="315" y="263" text-anchor="middle"
+                          transform="rotate(33 315 263)">CONDUITE</text>
+                </g>
+
+                <!-- Turbine -->
+                <g class="plant-part" tabindex="0" role="button"
+                   aria-label="Turbine" data-part="turbine">
+                    <circle cx="415" cy="345" r="38"
+                            fill="#d6eaf1" stroke="#087ea4" stroke-width="5"/>
+                    <circle cx="415" cy="345" r="10" fill="#087ea4"/>
+                    <g class="turbine-blades">
+                        <path d="M415 313 L424 338 L415 345 L406 338 Z"
+                              fill="#087ea4"/>
+                        <path d="M447 345 L422 354 L415 345 L422 336 Z"
+                              fill="#087ea4"/>
+                        <path d="M415 377 L406 352 L415 345 L424 352 Z"
+                              fill="#087ea4"/>
+                        <path d="M383 345 L408 336 L415 345 L408 354 Z"
+                              fill="#087ea4"/>
+                    </g>
+                    <text x="415" y="405" text-anchor="middle">TURBINE</text>
+                </g>
+
+                <!-- Alternateur -->
+                <g class="plant-part" tabindex="0" role="button"
+                   aria-label="Alternateur" data-part="generator">
+                    <rect x="475" y="302" width="105" height="67"
+                          rx="12" fill="#e0f2e9" stroke="#16a36a" stroke-width="3"/>
+                    <circle cx="497" cy="335" r="12"
+                            fill="none" stroke="#16a36a" stroke-width="3"/>
+                    <path d="M497 323 L497 347 M485 335 L509 335"
+                          stroke="#16a36a" stroke-width="2"/>
+                    <text x="535" y="330" text-anchor="middle"
+                          font-size="12">ALT.</text>
+                    <text x="535" y="347" text-anchor="middle"
+                          font-size="11">Électricité</text>
+                    <path d="M453 345 L475 335"
+                          stroke="#526777" stroke-width="5"/>
+                </g>
+
+                <!-- Transformateur -->
+                <g class="plant-part" tabindex="0" role="button"
+                   aria-label="Transformateur" data-part="transformer">
+                    <rect x="605" y="288" width="68" height="81"
+                          rx="8" fill="#fff1d6" stroke="#d99b27" stroke-width="3"/>
+                    <path d="M625 312 C645 312 625 325 645 325
+                             C625 325 645 338 625 338
+                             C645 338 625 351 645 351"
+                          fill="none" stroke="#b77913" stroke-width="3"/>
+                    <text x="639" y="390" text-anchor="middle">TRANSFO.</text>
+                </g>
+
+                <!-- Réseau électrique -->
+                <g class="plant-part" tabindex="0" role="button"
+                   aria-label="Réseau électrique" data-part="grid">
+                    <path d="M580 320 L605 320"
+                          stroke="#d99b27" stroke-width="4"/>
+                    <path d="M675 320 L704 320 L704 170"
+                          fill="none" stroke="#d99b27" stroke-width="4"/>
+                    <path d="M684 170 L724 170 M689 155 L719 155
+                             M694 140 L714 140 M704 140 L704 115"
+                          stroke="#d99b27" stroke-width="4"
+                          fill="none" stroke-linecap="round"/>
+                    <text x="700" y="95" text-anchor="middle">RÉSEAU</text>
+                    <text x="700" y="110" text-anchor="middle"
+                          class="svg-small">Électrique</text>
+                </g>
+
+                <!-- Légende du trajet -->
+                <text x="30" y="30" class="svg-small">
+                    TRAJET DE L'EAU ET DE L'ÉLECTRICITÉ
+                </text>
+            </svg>
+
+            <div class="plant-legend">
+                <span><i class="legend-water"></i> Circuit de l'eau</span>
+                <span><i class="legend-electric"></i> Circuit électrique</span>
+                <span>↗ Cliquez sur un équipement</span>
+            </div>
+        </div>
+
+        <!-- Informations interactives -->
+        <aside class="plant-info">
+            <p class="surtitle">ÉQUIPEMENT SÉLECTIONNÉ</p>
+            <h2 id="partTitle">Le réservoir</h2>
+            <p id="partDescription">
+                Le réservoir stocke l'eau et permet de disposer
+                d'une réserve pour alimenter la centrale.
+            </p>
+
+            <div class="plant-reading">
+                <span>État de l'équipement</span>
+                <strong id="partState">Opérationnel</strong>
+            </div>
+
+            <div class="plant-reading">
+                <span>Indicateur</span>
+                <strong id="partValue">Niveau : 87 %</strong>
+            </div>
+
+            <button id="turbineButton" type="button">
+                Arrêter la turbine
+            </button>
+
+            <p class="plant-hint">
+                Simulation pédagogique : les commandes modifient
+                uniquement l'affichage du site.
+            </p>
+        </aside>
+    </section>
+</main>
+
+<footer>
+    <p>HydroControl — Projet d'enseignement scientifique</p>
+    <p>Données fictives utilisées pour la simulation</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

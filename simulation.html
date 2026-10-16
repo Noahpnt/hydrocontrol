@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Simulation - HydroControl</title>
+
+<link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        💧 HydroControl
+    </div>
+
+    <nav>
+    <a href="index.html">Accueil</a>
+    <a href="centrale.html">Centrale</a>
+    <a href="simulation.html" class="active">Simulation</a>
+    <a href="environnement.html">Environnement</a>
+    <a href="investissement.html">Investissement</a>
+</nav>
+
+
+</header>
+
+
+<main>
+
+    <section class="simulation-header">
+
+        <p class="surtitle">OUTIL DE SIMULATION</p>
+
+        <h1>
+            Simulez la production
+            <span>hydroélectrique</span>
+        </h1>
+
+        <p class="description">
+            Modifiez les paramètres de la centrale et observez
+            directement leur influence sur la puissance produite.
+        </p>
+
+    </section>
+
+
+    <section class="simulation-container">
+
+<div class="parameters">
+
+    <h2>Paramètres de la centrale</h2>
+<!-- Hauteur de chute fixe -->
+    <div class="parameter">
+        <label>Hauteur de chute</label>
+
+        <div class="input-line">
+            <strong>916 m</strong>
+            <span class="fixed-value"></span>
+        </div>
+    </div>
+    <!-- Débit d'eau réglable -->
+    <div class="parameter">
+        <label for="debit">Débit de l'eau</label>
+
+        <div class="input-line">
+            <input
+                type="range"
+                id="debit"
+                min="20"
+                max="200"
+                value="125"
+                step="1"
+            >
+
+            <strong>
+                <span id="debitValeur">125</span> m³/s
+            </strong>
+        </div>
+    </div>
+
+    
+
+    <!-- Rendement réglable -->
+    <div class="parameter">
+        <label for="rendement">Rendement de la centrale</label>
+
+        <div class="input-line">
+            <input
+                type="range"
+                id="rendement"
+                min="50"
+                max="100"
+                value="90"
+                step="1"
+            >
+
+            <strong>
+                <span id="rendementValeur">90</span> %
+            </strong>
+        </div>
+    </div>
+
+</div>
+
+
+
+        <div class="result">
+
+            <p>PUISSANCE PRODUITE</p>
+
+            <h2 id="puissance">
+                0 MW
+            </h2>
+
+            <div class="result-info">
+
+                <div>
+                    <span>Débit</span>
+                    <strong id="resultDebit">125 m³/s</strong>
+                </div>
+
+                <div>
+                    <span>Hauteur</span>
+                    <strong id="resultHauteur">50 m</strong>
+                </div>
+
+                <div>
+                    <span>Rendement</span>
+                    <strong id="resultRendement">90 %</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="formula-section">
+
+        <p class="surtitle">PHYSIQUE</p>
+
+        <h2>
+            Comment est calculée la puissance ?
+        </h2>
+
+        <div class="formula">
+            P = ρ × g × Q × H × η
+        </div>
+
+        <div class="formula-explanation">
+
+            <div>
+                <strong>ρ</strong>
+                <span>Masse volumique de l'eau</span>
+            </div>
+
+            <div>
+                <strong>g</strong>
+                <span>Accélération de la pesanteur</span>
+            </div>
+
+            <div>
+                <strong>Q</strong>
+                <span>Débit de l'eau</span>
+            </div>
+
+            <div>
+                <strong>H</strong>
+                <span>Hauteur de chute</span>
+            </div>
+
+            <div>
+                <strong>η</strong>
+                <span>Rendement</span>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        HydroControl — Projet d'enseignement scientifique
+    </p>
+
+    <p>
+        Données fictives utilisées pour la simulation
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
