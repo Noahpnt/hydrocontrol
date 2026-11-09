@@ -1,31 +1,138 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Investissement - HydroControl</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Nouveau budget */
+
+        .budget-total-display {
+            text-align: center;
+            margin: 35px auto;
+            padding: 35px 20px;
+            background: #eaf6fb;
+            border-radius: 16px;
+        }
+
+        .budget-total-display p {
+            color: #526777;
+            font-weight: 600;
+        }
+
+        .budget-total-display h3 {
+            font-size: clamp(30px, 5vw, 48px);
+            color: #087ea4;
+            margin: 12px 0;
+        }
+
+        .budget-breakdown {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            margin-top: 35px;
+        }
+
+        .budget-item {
+            width: 100%;
+        }
+
+        .budget-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 9px;
+        }
+
+        .budget-item-header span {
+            font-weight: 600;
+            color: #102a43;
+        }
+
+        .budget-item-header strong {
+            color: #087ea4;
+            white-space: nowrap;
+        }
+
+        .budget-progress {
+            height: 11px;
+            background: #e5edf3;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .budget-progress div {
+            height: 100%;
+            background: #087ea4;
+            border-radius: 20px;
+        }
+
+        .budget-percent {
+            display: block;
+            text-align: right;
+            margin-top: 5px;
+            color: #718096;
+            font-size: 13px;
+        }
+
+        .budget-final {
+            margin-top: 20px;
+            padding: 22px;
+            background: #eaf6fb;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .budget-final strong {
+            color: #087ea4;
+            font-size: 22px;
+        }
+
+        @media (max-width: 600px) {
+            .budget-item-header {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .budget-final {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+
 </head>
 
 <body>
 
-
 <header>
+
     <div class="logo">💧 HydroControl</div>
 
     <nav>
-    <a href="index.html">Accueil</a>
-    <a href="centrale.html">Centrale</a>
-    <a href="simulation.html" >Simulation</a>
-    <a href="environnement.html">Environnement</a>
-    <a href="investissement.html"class="active">Investissement</a>
-</nav>
+        <a href="index.html">Accueil</a>
+        <a href="centrale.html">Centrale</a>
+        <a href="simulation.html">Simulation</a>
+        <a href="environnement.html">Environnement</a>
+        <a href="investissement.html" class="active">Investissement</a>
+    </nav>
 
 </header>
 
+
 <main>
+
+    <!-- INTRODUCTION -->
 
     <section class="investment-hero">
 
@@ -53,13 +160,15 @@
     </section>
 
 
+    <!-- INDICATEURS -->
+
     <section class="investment-stats" id="projet">
 
         <div class="investment-card">
             <span>⚡</span>
             <p>Puissance théorique</p>
-            <h2>55,18 MW</h2>
-            <small>Selon les paramètres de simulation</small>
+            <h2>1 010,92 MW</h2>
+            <small>Avec un débit de 125 m³/s et un rendement de 90 %</small>
         </div>
 
         <div class="investment-card">
@@ -79,9 +188,12 @@
     </section>
 
 
+    <!-- PRESENTATION -->
+
     <section class="investment-presentation">
 
         <div>
+
             <p class="surtitle">POURQUOI INVESTIR ?</p>
 
             <h2>
@@ -102,7 +214,9 @@
                 comprendre comment le débit, la hauteur de chute
                 et le rendement influencent la puissance produite.
             </p>
+
         </div>
+
 
         <div class="investment-benefits">
 
@@ -135,56 +249,227 @@
     </section>
 
 
+    <!-- NOUVEAU BUDGET -->
+
     <section class="investment-budget">
 
         <p class="surtitle">PRÉVISION DU PROJET</p>
 
-        <h2>Un investissement à étudier</h2>
+        <h2>Un investissement de grande envergure</h2>
 
         <p class="budget-description">
-            Voici un exemple de budget fictif pour illustrer
-            les postes à financer. Ces montants ne correspondent
-            pas à un devis réel.
+            La construction et l'exploitation d'une centrale
+            hydroélectrique de grande puissance nécessitent
+            des investissements importants. Voici la répartition
+            prévisionnelle du budget de notre projet.
         </p>
 
-        <div class="budget-table">
 
-            <div class="budget-line">
-                <span>Équipements et turbines</span>
-                <strong>4 000 000 €</strong>
-            </div>
+        <div class="budget-total-display">
 
-            <div class="budget-line">
-                <span>Installation et travaux</span>
-                <strong>2 500 000 €</strong>
-            </div>
+            <p>INVESTISSEMENT TOTAL PRÉVISIONNEL</p>
 
-            <div class="budget-line">
-                <span>Système de supervision</span>
-                <strong>250 000 €</strong>
-            </div>
+            <h3>400 000 000 €</h3>
 
-            <div class="budget-line">
-                <span>Maintenance et imprévus</span>
-                <strong>250 000 €</strong>
-            </div>
-
-            <div class="budget-line budget-total">
-                <span>Budget prévisionnel fictif</span>
-                <strong>7 000 000 €</strong>
-            </div>
+            <small>Soit 400 millions d'euros</small>
 
         </div>
 
+
+        <div class="budget-breakdown">
+
+
+            <!-- 1 -->
+
+            <div class="budget-item">
+
+                <div class="budget-item-header">
+                    <span>Construction du barrage et génie civil</span>
+                    <strong>145 000 000 €</strong>
+                </div>
+
+                <div class="budget-progress">
+                    <div style="width: 36.25%;"></div>
+                </div>
+
+                <small class="budget-percent">36,25 % du budget</small>
+
+            </div>
+
+
+            <!-- 2 -->
+
+            <div class="budget-item">
+
+                <div class="budget-item-header">
+                    <span>Turbines et alternateurs</span>
+                    <strong>85 000 000 €</strong>
+                </div>
+
+                <div class="budget-progress">
+                    <div style="width: 21.25%;"></div>
+                </div>
+
+                <small class="budget-percent">21,25 % du budget</small>
+
+            </div>
+
+
+            <!-- 3 -->
+
+            <div class="budget-item">
+
+                <div class="budget-item-header">
+                    <span>Conduites forcées et équipements hydrauliques</span>
+                    <strong>45 000 000 €</strong>
+                </div>
+
+                <div class="budget-progress">
+                    <div style="width: 11.25%;"></div>
+                </div>
+
+                <small class="budget-percent">11,25 % du budget</small>
+
+            </div>
+
+
+            <!-- 4 -->
+
+            <div class="budget-item">
+
+                <div class="budget-item-header">
+                    <span>Transformateurs et raccordement électrique</span>
+                    <strong>35 000 000 €</strong>
+                </div>
+
+                <div class="budget-progress">
+                    <div style="width: 8.75%;"></div>
+                </div>
+
+                <small class="budget-percent">8,75 % du budget</small>
+
+            </div>
+
+
+            <!-- 5 -->
+
+            <div class="budget-item">
+
+                <div class="budget-item-header">
+                    <span>Installation, transport et logistique</span>
+                    <strong>30 000 000 €</strong>
+                </div>
+
+                <div class="budget-progress">
+                    <div style="width: 7.5%;"></div>
+                </div>
+
+                <small class="budget-percent">7,5 % du budget</small>
+
+            </div>
+
+
+            <!-- 6 -->
+
+            <div class="budget-item">
+
+                <div class="budget-item-header">
+                    <span>Études, conception et autorisations</span>
+                    <strong>15 000 000 €</strong>
+                </div>
+
+                <div class="budget-progress">
+                    <div style="width: 3.75%;"></div>
+                </div>
+
+                <small class="budget-percent">3,75 % du budget</small>
+
+            </div>
+
+
+            <!-- 7 -->
+
+            <div class="budget-item">
+
+                <div class="budget-item-header">
+                    <span>Systèmes de contrôle et de sécurité</span>
+                    <strong>10 000 000 €</strong>
+                </div>
+
+                <div class="budget-progress">
+                    <div style="width: 2.5%;"></div>
+                </div>
+
+                <small class="budget-percent">2,5 % du budget</small>
+
+            </div>
+
+
+            <!-- 8 -->
+
+            <div class="budget-item">
+
+                <div class="budget-item-header">
+                    <span>Mesures environnementales</span>
+                    <strong>8 000 000 €</strong>
+                </div>
+
+                <div class="budget-progress">
+                    <div style="width: 2%;"></div>
+                </div>
+
+                <small class="budget-percent">2 % du budget</small>
+
+            </div>
+
+
+            <!-- 9 -->
+
+            <div class="budget-item">
+
+                <div class="budget-item-header">
+                    <span>Réserve pour imprévus et mise en service</span>
+                    <strong>27 000 000 €</strong>
+                </div>
+
+                <div class="budget-progress">
+                    <div style="width: 6.75%;"></div>
+                </div>
+
+                <small class="budget-percent">6,75 % du budget</small>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="budget-final">
+
+            <span>
+                <strong>TOTAL DE L'INVESTISSEMENT</strong>
+            </span>
+
+            <strong>400 000 000 €</strong>
+
+        </div>
+
+
         <p class="budget-warning">
-            Attention : ces chiffres sont uniquement illustratifs.
-            La rentabilité réelle dépendrait notamment des études
-            techniques, des autorisations, des coûts d'exploitation
-            et du prix de vente de l'électricité.
+
+            Attention : cette répartition est une estimation
+            fictive réalisée dans le cadre de notre projet scolaire.
+            Elle ne constitue pas un devis réel. Les coûts définitifs
+            dépendraient notamment des études techniques, du terrain,
+            des autorisations, des contraintes environnementales
+            et des conditions de construction.
+
         </p>
 
     </section>
 
+
+    <!-- CONCLUSION -->
 
     <section class="investment-conclusion">
 
@@ -203,16 +488,22 @@
 
         <a class="investment-button"
            href="simulation.html">
+
             Explorer la simulation
+
         </a>
 
     </section>
 
 </main>
 
+
 <footer>
+
     <p>HydroControl — Projet d'enseignement scientifique</p>
+
     <p>Données fictives utilisées pour la simulation</p>
+
 </footer>
 
 
